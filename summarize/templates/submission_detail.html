@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h3>{{ submission.title }}</h3>  <!-- Display the submission title -->
+        </div>
+        <div class="card-body">
+            <p><strong>Field:</strong> {{ submission.field }}</p>  <!-- Display the field of the submission -->
+            <p><strong>Date Added:</strong> {{ submission.date|date:"Y-m-d H:i" }}</p>  <!-- Display the date -->
+            
+            {% if submission.paper %}
+            <p><strong>File:</strong> 
+                <a href="{{ submission.paper.url }}" target="_blank" class="btn btn-info btn-sm">
+                    <i class="fas fa-download"></i> Download File
+                </a>
+            </p>
+            {% endif %}
+            
+            <h4 class="mt-3">Summary:</h4>
+            <div class="border p-3 mt-2 bg-light">
+                {{ submission.summary|linebreaks }}  <!-- Display the summary with line breaks -->
+            </div>
+            
+            <div class="mt-4">
+                <a href="{% url 'submission_edit' pk=submission.pk %}" class="btn btn-warning">
+                    <i class="fas fa-edit"></i> Edit
+                </a>
+                <a href="{% url 'submission_delete' pk=submission.pk %}" class="btn btn-danger">
+                    <i class="fas fa-trash"></i> Delete
+                </a>
+                <a href="{% url 'submission_list' %}" class="btn btn-secondary">
+                    <i class="fas fa-list"></i> Back to List
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
