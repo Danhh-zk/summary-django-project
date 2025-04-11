@@ -15,3 +15,6 @@ Sumx targets students, researchers, and educators who need to summarize research
 
 ## Goal:
 The aim of the Sumx project is to enhance the academic research experience and provide tools that facilitate access to important information in an organized and user-friendly manner.
+
+## DEMO
+![Screenshot](./django_project_demo.png)
